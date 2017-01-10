@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/leemhenson/purescreeps/issues"
   },
-  "homepage": "https://github.com/leemhenson/purescreeps#readme"
+  "homepage": "https://github.com/leemhenson/purescreeps#readme",
+  "devDependencies": {
+    "grunt-screeps": "^1.2.1"
+  }
 }
