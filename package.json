@@ -1,21 +1,18 @@
 {
   "name": "purescreeps",
+  "license": "ISC",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
-  "scripts": {
-    "test": "test"
-  },
+  "homepage": "https://github.com/leemhenson/purescreeps#readme",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/leemhenson/purescreeps.git"
   },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/leemhenson/purescreeps/issues"
+  "postinstall": "bower install",
+  "scripts": {
+    "build": "pulp build",
+    "test": "pulp test"
   },
-  "homepage": "https://github.com/leemhenson/purescreeps#readme",
   "devDependencies": {
     "grunt-screeps": "^1.2.1",
     "pscid": "^1.12.0",
