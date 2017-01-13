@@ -10,8 +10,10 @@ module.exports = function(grunt) {
         ptr: false
       },
       dist: {
-        src: ['output/**/*.js']
+        src: ['dist/*.js']
       }
     }
   });
+
+  grunt.registerTask('default', ['screeps']);
 }
