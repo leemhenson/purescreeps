@@ -1,0 +1,4 @@
+#!/usr/bin/env zsh
+
+pulp browserify --standalone Main --to ./dist/lib.js
+
