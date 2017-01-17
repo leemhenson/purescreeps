@@ -17,7 +17,7 @@ spawnCreeps game = do
   for_ (spawns game) \s ->
     log (Spawn.name s)
 
-loop :: ∀ e. Eff (tick :: TICK, console :: CONSOLE | e) Unit
+loop :: ∀ e. Eff (console :: CONSOLE, tick :: TICK | e) Unit
 loop = do
   log "loop"
 
