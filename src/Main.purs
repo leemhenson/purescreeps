@@ -6,13 +6,14 @@ import Data.Int (decimal, toStringAs)
 import Data.Maybe (maybe)
 import Data.Traversable (for_)
 import Prelude ((<>), bind, Unit)
+import Screeps.Constants (part_carry, part_move, part_work)
 import Screeps.Effects (TICK)
 import Screeps.Game (getGameGlobal, rooms, spawns)
 import Screeps.Room (name)
 import Screeps.Room (name) as R
-import Screeps.Spawn (CreepInfo)
+import Screeps.Spawn (CreepInfo, canCreateCreep)
 import Screeps.Spawn (energy, energyCapacity, name) as S
-import Screeps.Types (GameGlobal, Room, Spawn)
+import Screeps.Types (GameGlobal, ReturnCode(..), Room, Spawn)
 
 showCreepInfo :: CreepInfo -> String
 showCreepInfo info = info.name <> " (" <> info.remainingTime <> "/" <> info.needTime <> ")"
@@ -33,12 +34,8 @@ showRoom room = "[room] " <> name
   where
     name = R.name room
 
--- spawnCreeps :: ∀ e. GameGlobal -> Eff (console :: CONSOLE | e) Unit
--- spawnCreeps game = do
---   log "spawnCreeps"
-
---   for_ (spawns game) \spawn ->
---     log (showSpawn spawn)
+spawnHarvester :: Spawn -> ReturnCode
+spawnHarvester spawn = canCreateCreep spawn [part_move part_carry part_work]
 
 loop :: ∀ e. Eff (console :: CONSOLE, tick :: TICK | e) Unit
 loop = do
